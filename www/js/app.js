@@ -51,7 +51,35 @@
     }//end loadMore
 
 
-    
+    $scope.doRefresh = function(){
+
+        var config = {params:{'before':''}};
+        if ($scope.stories.length > 0) {
+             config.params.before = $scope.stories[0].name;
+        }
+
+        var redditUrl = 'https://www.reddit.com/r/Android/new/.json';                   
+        $http.get(redditUrl, config).success(function(response){
+            console.log(response);
+            console.log(response.data.children);
+        
+            var newStories=[];
+            angular.forEach(response.data.children, function(item){
+              if (item.data.thumbnail.indexOf('http')!=0) {
+                  item.data.thumbnail = 
+                      'https://rimblogs.files.wordpress.com/2015/10/reddit-icon.png?w=200'
+              };
+              newStories.push(item.data);
+            });/*end angular.forEach*/
+
+              
+              $scope.stories = newStories.concat($scope.stories);
+              // Stop the ion-refresher from spinning
+              $scope.$broadcast('scroll.refreshComplete');
+        });//end get request
+
+
+    }
   });//end reddit-controller
 
 

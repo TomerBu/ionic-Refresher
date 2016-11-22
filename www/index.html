@@ -55,6 +55,14 @@
           <!-- Before means stories at the TOP! for pull to refresh we need before -->
           <!-- Example https://www.reddit.com/r/Android/new/.json?before=t3_5e9urn -->
           <!-- http://ionicframework.com/docs/api/directive/ionInfiniteScroll/ -->
+
+          <!-- http://ionicframework.com/docs/api/directive/ionRefresher/ -->
+
+         <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="doRefresh()">
+          </ion-refresher>
+  
           <div class="list">
           <!-- item-avatar-left
           item-thumbnail-right -->
