@@ -24,6 +24,8 @@
             console.log(item.data.title);
             console.log(item.data.thumbnail);
             console.log(item.data.url);
+
+            $scope.stories.push(item.data);
         });
 
 
