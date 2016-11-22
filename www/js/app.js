@@ -78,7 +78,10 @@
               $scope.$broadcast('scroll.refreshComplete');
         });//end get request
 
-
+        $scope.openLink = function(url){
+          console.log(url);
+          window.open(url, '_blank');
+        }
     }
   });//end reddit-controller
 
@@ -90,6 +93,9 @@
         // for form inputs)
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
+        if (window.cordova && window.cordova.InAppBrowser) {
+          window.open = cordova.InAppBrowser.open;
+        }
         // Don't remove this line unless you know what you are doing. It stops the viewport
         // from snapping when text inputs are focused. Ionic handles this internally for
         // a much nicer keyboard experience.
