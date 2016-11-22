@@ -16,6 +16,17 @@
     var redditUrl = 'https://www.reddit.com/r/Android/new/.json';                   
     $http.get(redditUrl).success(function(response){
         console.log(response);
+        console.log(response.data.children);
+    
+
+        angular.forEach(response.data.children, function(item){
+            console.log(item.data);
+            console.log(item.data.title);
+            console.log(item.data.thumbnail);
+            console.log(item.data.url);
+        });
+
+
     });
   });
 
