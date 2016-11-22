@@ -24,7 +24,35 @@
 
 
     });
-  });
+
+    $scope.loadMore = function(){
+        console.log('Yay');
+        var config = {params:{after:''}};
+        if ($scope.stories.length > 0) {
+             config.params.after = $scope.stories[$scope.stories.length - 1].name
+        }
+
+        var redditUrl = 'https://www.reddit.com/r/Android/new/.json';                   
+        $http.get(redditUrl, config).success(function(response){
+            console.log(response);
+            console.log(response.data.children);
+        
+
+            angular.forEach(response.data.children, function(item){
+              if (item.data.thumbnail.indexOf('http')!=0) {
+                  item.data.thumbnail = 
+                      'https://rimblogs.files.wordpress.com/2015/10/reddit-icon.png?w=200'
+              };
+              $scope.stories.push(item.data);
+
+            });/*end angular.forEach*/
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        });//end get request
+    }//end loadMore
+
+
+    
+  });//end reddit-controller
 
 
   app.run(function($ionicPlatform) {
