@@ -7,11 +7,16 @@
 (function(){
   var app = angular.module('reddit', ['ionic'])
 
-  app.controller('reddit-controller', function($scope){
+  app.controller('reddit-controller', function($http, $scope){
     $scope.stories = [{title:"First Story"},
                       {title:"2nd Story"},
                       {title:"3rd Story"}
                      ];
+
+    var redditUrl = 'https://www.reddit.com/r/Android/new/.json';                   
+    $http.get(redditUrl).success(function(response){
+        console.log(response);
+    });
   });
 
 
