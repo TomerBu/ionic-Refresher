@@ -17,7 +17,9 @@
     
 
         angular.forEach(response.data.children, function(item){
+          if (item.data.thumbnail.indexOf('http')!=0) {item.data.thumbnail = 'https://rimblogs.files.wordpress.com/2015/10/reddit-icon.png?w=200'};
             $scope.stories.push(item.data);
+
         });
 
 

@@ -44,9 +44,11 @@
       http://ionicframework.com/docs/components/ -->
           <h2>ng-repeat</h2>
           <div class="list">
-            <a class="item" target='_' href="{{story.url}}" ng-repeat='story in stories'>
+          <!-- item-avatar-left
+          item-thumbnail-right -->
+            <a class="item item-thumbnail-left" target='_' href="{{story.url}}" ng-repeat='story in stories'>
               <img src="{{story.thumbnail}}" />
-              {{story.title}}
+             <p>{{story.title}}</p>
             </a>
           </div>
       </ion-content>
