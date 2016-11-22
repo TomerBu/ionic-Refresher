@@ -1,1 +1,11 @@
 /* Empty. Add your own CSS if you like */
+.item h2{
+	white-space: wrap;
+	white-space: nowrap;
+	white-space: normal;
+	height: 3.6em;
+}
+
+.item p{
+	vertical-align: bottom;
+}

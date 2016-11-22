@@ -42,13 +42,14 @@
       <ion-content>
       <!-- ionic css componentes
       http://ionicframework.com/docs/components/ -->
-          <h2>ng-repeat</h2>
+
           <div class="list">
           <!-- item-avatar-left
           item-thumbnail-right -->
             <a class="item item-thumbnail-left" target='_' href="{{story.url}}" ng-repeat='story in stories'>
               <img src="{{story.thumbnail}}" />
-             <p>{{story.title}}</p>
+             <h2>{{story.title}}</h2>
+             <p>{{story.domain}}</p>
             </a>
           </div>
       </ion-content>
