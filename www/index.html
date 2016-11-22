@@ -31,29 +31,22 @@
   <body ng-app="reddit" ng-controller='reddit-controller'>
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-positive">
+      <!-- <ion-header-bar class="bar-balanced"> -->
+       <!-- <ion-header-bar class="bar-calm"> -->
+      <!-- <ion-header-bar class="bar-energized"> -->
         <h1 class="title">Reddit Starter</h1>
        
         <!-- Mustache -->
       </ion-header-bar>
       <ion-content>
-
-        <!--   <h2>Hello, Mustache</h2>
-          Stories: {{stories}}
-
-          <h2>Manual Mustache iteration</h2>
-          <div>
-            {{stories[0].title}}
-          </div>
-          <div>
-            {{stories[1].title}}
-          </div>
-          <div>
-            {{stories[2].title}}
-          </div> -->
+      <!-- ionic css componentes
+      http://ionicframework.com/docs/components/ -->
           <h2>ng-repeat</h2>
-          <div ng-repeat='story in stories'>
-            {{story.title}}
+          <div class="list">
+            <div class="item" ng-repeat='story in stories'>
+              {{story.title}}
+            </div>
           </div>
       </ion-content>
     </ion-pane>
