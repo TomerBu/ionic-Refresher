@@ -8,10 +8,7 @@
   var app = angular.module('reddit', ['ionic'])
 
   app.controller('reddit-controller', function($http, $scope){
-    $scope.stories = [{title:"First Story"},
-                      {title:"2nd Story"},
-                      {title:"3rd Story"}
-                     ];
+    $scope.stories = []; 
 
     var redditUrl = 'https://www.reddit.com/r/Android/new/.json';                   
     $http.get(redditUrl).success(function(response){
@@ -20,11 +17,6 @@
     
 
         angular.forEach(response.data.children, function(item){
-            console.log(item.data);
-            console.log(item.data.title);
-            console.log(item.data.thumbnail);
-            console.log(item.data.url);
-
             $scope.stories.push(item.data);
         });
 
